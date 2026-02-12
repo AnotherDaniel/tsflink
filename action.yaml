@@ -11,6 +11,10 @@ inputs:
     required: true
 
 outputs:
+  version:
+    description: "Tool version"
+  files:
+    description: "Number of files"
   result:
     description: "Tool result"
 

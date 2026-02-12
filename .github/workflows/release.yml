@@ -39,3 +39,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           echo: "Hi!"
+
+      - name: Show outputs
+        run: |
+          echo "Version: ${{ steps.tsflink_test.outputs.version }}"
+          echo "Files: ${{ steps.tsflink_test.outputs.files }}"
