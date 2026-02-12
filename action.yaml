@@ -1,0 +1,17 @@
+name: "TSF evidence linker"
+description: "Link CI-generated evidence items to TSF project statements"
+
+inputs:
+  target:
+    description: "Target environment"
+    required: true
+
+outputs:
+  result:
+    description: "Tool result"
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.echo }}
