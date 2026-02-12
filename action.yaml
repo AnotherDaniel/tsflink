@@ -2,8 +2,12 @@ name: "TSF evidence linker"
 description: "Link CI-generated evidence items to TSF project statements"
 
 inputs:
-  target:
-    description: "Target environment"
+  github_token:
+    description: 'GitHub token.'
+    required: false
+    default: ${{ github.token }}
+  echo:
+    description: "String to ping"
     required: true
 
 outputs:
