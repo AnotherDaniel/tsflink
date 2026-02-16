@@ -1,0 +1,20 @@
+{
+  "asset-info": {
+    "description": "Project code is entirely public",
+    "evidence-links": [
+      "https://github.com/eclipse-uprotocol"
+    ],
+    "name": "EvidencePublicCode",
+    "tsf-ids": [
+      "EA-PUBLIC_CODE"
+    ],
+    "type": "GOVERNANCE"
+  },
+  "context-info": {
+    "by-workflow": "Release",
+    "commit-sha": "222c52ef48148da1a96aa207b72b9670feb2bf2e",
+    "ref": "refs/tags/v0.3.9",
+    "release-url": "https://github.com/AnotherDaniel/up-rust/releases/tag/v0.3.9",
+    "repository": "AnotherDaniel/up-rust"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "asset-info": {
+    "description": "CI check workflow is running all tests, including cucumber harness, failing checks result in PRs and releases being rejected",
+    "evidence-links": [
+      "req~up-language-ci-test~1"
+    ],
+    "name": "EvidenceTestHarness",
+    "tsf-ids": [
+      "RA-TEST_HARNESS"
+    ],
+    "type": "REQUIREMENT"
+  },
+  "context-info": {
+    "by-workflow": "Release",
+    "commit-sha": "222c52ef48148da1a96aa207b72b9670feb2bf2e",
+    "ref": "refs/tags/v0.3.9",
+    "release-url": "https://github.com/AnotherDaniel/up-rust/releases/tag/v0.3.9",
+    "repository": "AnotherDaniel/up-rust"
+  }
+}
