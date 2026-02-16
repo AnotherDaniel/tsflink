@@ -12,12 +12,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install TSF
-RUN pip install trustable --index-url https://gitlab.com/api/v4/projects/66600816/packages/pypi/simple
+RUN pip install trustable --index-url https://gitlab.eclipse.org/api/v4/projects/12202/packages/pypi/simple
 
 # Copy application code
-COPY entrypoint.sh /app
+COPY scripts/*.sh /app
 
 # Ensure entrypoint is executable
-RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/*.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]

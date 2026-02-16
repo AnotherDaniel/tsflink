@@ -38,7 +38,7 @@ jobs:
         id: tsflink_test
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          echo: "Hi!"
+          tsffer_url: "Hi!"
 
       - name: Show outputs
         run: |

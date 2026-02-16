@@ -9,6 +9,9 @@ inputs:
   echo:
     description: "String to ping"
     required: true
+  tsffer_url:
+    description: "(Optional) URL pointing to tsffer metadata artifact archive. If not provided, will retrieve tsffer artifacts from GH CI artifact store."
+    required: false
 
 outputs:
   version:
@@ -22,4 +25,4 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.echo }}
+    - ${{ inputs.tsffer_url }}
