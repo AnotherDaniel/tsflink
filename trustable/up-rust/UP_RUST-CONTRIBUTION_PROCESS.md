@@ -3,7 +3,7 @@ normative: true
 
 publish:
     group: "Eclipse Process"
-#$EVIDENCE_REF$
+#EVIDENCE_REF#
 #   To be replaced by actual file or git artifact pointer; can be an array of references. 
 #   Format example:
 #references:

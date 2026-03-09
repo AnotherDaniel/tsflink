@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Handle case where this is running outside of a GitHub runner
-GITHUB_WORKSPACE="${GITHUB_WORKSPACE:-.}"
-
-# Optional tsffer source URL parameter, empty if not provided
-TSFFER_URL="${1:-}"
-
-# Deal with both cases - running in a GitHub runner, or standalone
+# Setting script output to deal with both running in a GitHub runner, or standalone
 set_output() {
   local name="$1"
   local value="$2"
@@ -32,12 +26,18 @@ check_command() {
 }
 
 # Ensure availability of commands required by this action
-check_command jq
 check_command curl
+check_command gh
+check_command jq
 check_command trudag
 
 # Source shared config
 source "$(dirname "$0")/config.sh"
+
+# Add custom trudag formatters to workspace (only if we're truly running inside a github action container)
+if [ -d "/app/.dotstop_extensions" ]; then
+  cp -fr /app/.dotstop_extensions "$GITHUB_WORKSPACE"
+fi
 
 # tsffer manifest file location
 mkdir -p "$TSFFER_DIR"

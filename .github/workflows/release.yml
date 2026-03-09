@@ -26,19 +26,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Create release
-      #   uses: softprops/action-gh-release@v2
-      #   id: create_release
-      # - name: Show release URL
-      #   run: |
-      #     echo ${{ steps.create_release.outputs.url }}
-
       - name: Run tsflink
         uses: ./ # Uses an action in the root directory
         id: tsflink_test
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tsffer_url: "Hi!"
 
       - name: Show outputs
         run: |

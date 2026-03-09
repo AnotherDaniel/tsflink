@@ -3,12 +3,13 @@ normative: true
 
 publish:
     group: "Eclipse Process"
-#$EVIDENCE_REF$
-#  To be replaced by actual file or git artifact pointer; can be an array of references. 
-#  Format example:
-#references:
-#    - type: "webpage"
-#      url: "https://github.com/eclipse-uprotocol/up-rust/pull/279"
+references:
+    - type: download_url
+      url: https://github.com/AnotherDaniel/up-rust/releases/download/v0.0.4/doc-test-results.xml
+    - type: download_url
+      url: https://github.com/AnotherDaniel/up-rust/releases/download/v0.0.4/tarpaulin-report.html
+    - type: download_url
+      url: https://github.com/AnotherDaniel/up-rust/releases/download/v0.0.4/oft-report.html
 score: 
     AnotherDaniel: 0.3
 ---

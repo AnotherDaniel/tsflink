@@ -1,16 +1,11 @@
 ---
 normative: true
+
 publish:
     group: "Eclipse Process"
-#EVIDENCE_REF#
-#   To be replaced by actual file or git artifact pointer; can be an array of references. 
-#   Format example:
-# references:
-#    - type: "github"
-#      project: eclipse-uprotocol
-#      repository: up-rust
-#      path: README.md
-
+references:
+    - type: download_url
+      url: https://github.com/AnotherDaniel/up-rust/releases/download/v0.0.4/up-spec.tar.gz
 score: 
     AnotherDaniel: 0.9
 ---

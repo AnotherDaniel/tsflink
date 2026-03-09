@@ -7,9 +7,6 @@
 # a download URL references an archive of tsffer files, as created by the `package` operation
 # of the [tsffer GitHub action](https://github.com/AnotherDaniel/tsffer).
 
-# Optional tsffer source URL parameter, empty if not provided
-TSFFER_URL="${1:-}"
-
 # Source shared config
 source "$(dirname "$0")/config.sh"
 

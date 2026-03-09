@@ -1,20 +1,20 @@
 {
   "asset-info": {
     "description": "CI check workflow is calling cargo clippy, failing checks result in PRs and releases being rejected",
-    "evidence-links": [
-      "req~up-language-ci-linter~1"
-    ],
+    "reference-properties": {
+      "reference_type": "openfasttrace",
+      "requirement_id": "req~up-language-ci-linter~1"
+    },
     "name": "EvidenceEnforceLinterRules",
     "tsf-ids": [
       "RA-LINTER"
-    ],
-    "type": "REQUIREMENT"
+    ]
   },
   "context-info": {
     "by-workflow": "Release",
-    "commit-sha": "222c52ef48148da1a96aa207b72b9670feb2bf2e",
-    "ref": "refs/tags/v0.3.9",
-    "release-url": "https://github.com/AnotherDaniel/up-rust/releases/tag/v0.3.9",
+    "commit-sha": "a8853ccd16d467fd5eda67ecf946cca29224d1d1",
+    "ref": "refs/tags/v0.0.4",
+    "release-url": "https://github.com/AnotherDaniel/up-rust/releases/tag/v0.0.4",
     "repository": "AnotherDaniel/up-rust"
   }
 }
