@@ -27,6 +27,7 @@ trap cleanup EXIT
 
 if [[ -n "$TSFFER_URL" ]]; then
   # Download tsffer artifact from provided URL
+  echo "Retrieving tsffer assets from: $TSFFER_URL"
   ARCHIVE_FILE="$WORK_DIR/$(basename "$TSFFER_URL")"
   curl -L "$TSFFER_URL" -o "$ARCHIVE_FILE"
 
@@ -35,6 +36,7 @@ if [[ -n "$TSFFER_URL" ]]; then
 
 else
   # Retrieve tsffer artifacts from current github CI run
+  echo "Retrieving tsffer assets from current CI action run artifacts"
   gh run download "${{ github.run_id }}" --pattern '*.tsffer' --dir $WORK_DIR
 
   # Flatten stupid dir structure that gh run download creates

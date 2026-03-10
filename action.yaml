@@ -1,25 +1,20 @@
 name: "TSF evidence linker"
-description: "Link CI-generated evidence items to TSF project statements"
+description: "Link tsffer-generated evidence items to TSF project statements, score tsf tree and generate report"
 
 inputs:
   github_token:
     description: 'GitHub token.'
     required: false
     default: ${{ github.token }}
-  echo:
-    description: "String to ping"
-    required: true
   tsffer_url:
     description: "(Optional) URL pointing to tsffer metadata artifact archive. If not provided, will retrieve tsffer artifacts from GH CI artifact store."
     required: false
 
 outputs:
-  version:
-    description: "Tool version"
-  files:
-    description: "Number of files"
-  result:
-    description: "Tool result"
+  trudag_score:
+    description: "TSF score computed after linking evidence refs"
+  trudag_report:
+    description: "Name of archive file containing trudag-generated report"
 
 runs:
   using: docker

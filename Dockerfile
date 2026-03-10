@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     yq \
     && rm -rf /var/lib/apt/lists/*
 
-# Install TSF
+# Install TSF trudag tool
 RUN pip install trustable --index-url https://gitlab.eclipse.org/api/v4/projects/12202/packages/pypi/simple
 
 # Install custom stuff we need around trudag: custom formatters, implied Python modules

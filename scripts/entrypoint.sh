@@ -46,26 +46,22 @@ if [[ ! "$TSFFER_DIR" || ! -d "$TSFFER_DIR" ]]; then
   exit 1
 fi
 
-if [[ -n "$TSFFER_URL" ]]; then
-  echo "Retrieving tsffer assets from: $TSFFER_URL"
-fi
-
 # Retrieve tsffer assets
-#"$(dirname "$0")/scripts/get_tsffer.sh" "$TSFFER_URL"
+#"$(dirname "$0")/get_tsffer.sh" "$TSFFER_URL"
 
-# Process each tsffer file
+# Process each tsffer file, to link evidence refs into tsf tree
 for file in "$TSFFER_DIR"/*.tsffer; do
   [[ -f "$file" ]] || continue
   "$(dirname "$0")/process_references.sh" "$(cat "$file")"
 done
 
-# Score our tsf tree
+# Score tsf tree
 TRUDAG_SCORE=$("$(dirname "$0")/trudag_score.sh")
 echo "Trudag score: $TRUDAG_SCORE"
 
 # Create and package trudag report
 "$(dirname "$0")/trudag_publish.sh"
 
-
+# Set action ouput - tsf score and generated report archive 
 set_output "TRUDAG_SCORE" "$TRUDAG_SCORE"
 set_output "TRUDAG_REPORT" "$TRUDAG_REPORT_ARCHIVE"
