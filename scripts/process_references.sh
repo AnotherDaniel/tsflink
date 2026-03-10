@@ -77,6 +77,6 @@ $YAML_BLOCK"
 
   # We need to set the newly modified item to 'reviewed', as current trudag otherwise refuses to compute scores
   echo "Setting review flag for $itemid"
-  RESULT="$(trudag manage set-item "$itemid")"
+  trudag manage set-item "$itemid"
 
 done
