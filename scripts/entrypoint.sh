@@ -47,7 +47,7 @@ if [[ ! "$TSFFER_DIR" || ! -d "$TSFFER_DIR" ]]; then
 fi
 
 # Retrieve tsffer assets
-#"$(dirname "$0")/get_tsffer.sh" "$TSFFER_URL"
+"$(dirname "$0")/get_tsffer.sh" "$TSFFER_URL"
 
 # Process each tsffer file, to link evidence refs into tsf tree
 for file in "$TSFFER_DIR"/*.tsffer; do
