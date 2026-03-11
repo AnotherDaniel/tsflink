@@ -5,7 +5,7 @@ WORKDIR /app
 
 # System deps needed to build wheels
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    #    build-essential \
     curl \
     gh \
     git \
