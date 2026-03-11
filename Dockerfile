@@ -19,7 +19,6 @@ RUN pip install trustable --index-url https://gitlab.eclipse.org/api/v4/projects
 
 # Install custom stuff we need around trudag: custom formatters, implied Python modules
 RUN pip install requests
-COPY .dotstop_extensions/* /app/.dotstop_extensions/
 
 # Copy application code
 COPY scripts/*.sh /app/
