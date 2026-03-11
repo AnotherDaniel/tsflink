@@ -1,6 +1,6 @@
 # Handle case where this is running outside of a GitHub runner
 GITHUB_WORKSPACE="${GITHUB_WORKSPACE:-.}"
-GITHUB_RUN_ID="${GITHUB_RUN_ID:}"
+GITHUB_RUN_ID="${GITHUB_RUN_ID:-}"
 
 # Github Repo ID
 GITHUB_REPOSITORY="${GITHUB_REPOSITORY:-}"

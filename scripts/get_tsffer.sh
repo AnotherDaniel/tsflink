@@ -37,7 +37,7 @@ if [[ -n "$TSFFER_URL" ]]; then
 else
   # Retrieve tsffer artifacts from current github CI run
   echo "Retrieving tsffer assets from current CI action run artifacts"
-  gh run download "$GITHUB_RUN_ID" --pattern '*.tsffer' --dir "$WORK_DIR"
+  gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --pattern '*.tsffer' --dir "$WORK_DIR"
 
   # Flatten stupid dir structure that gh run download creates
   find tmp -mindepth 2 -type f -exec mv -t "$TSFFER_DIR" {} +
