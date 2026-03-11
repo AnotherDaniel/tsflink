@@ -4,9 +4,9 @@ ENV PATH="/root/.local/bin:$PATH"
 WORKDIR /app
 
 # System deps needed to build wheels
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y \
-    #    build-essential \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    ca-certificates \
     curl \
     gh \
     git \
