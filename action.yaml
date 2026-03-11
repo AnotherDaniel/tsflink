@@ -2,10 +2,6 @@ name: "TSF evidence linker"
 description: "Link tsffer-generated evidence items to TSF project statements, score tsf tree and generate report"
 
 inputs:
-  github_token:
-    description: 'GitHub token.'
-    required: false
-    default: ${{ github.token }}
   tsffer_url:
     description: "(Optional) URL pointing to tsffer metadata artifact archive. If not provided, will retrieve tsffer artifacts from GH CI artifact store."
     required: false
