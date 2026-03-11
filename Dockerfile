@@ -6,6 +6,7 @@ WORKDIR /app
 # System deps needed to build wheels
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    bzip2 \
     ca-certificates \
     curl \
     gh \
