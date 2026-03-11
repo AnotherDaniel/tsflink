@@ -26,4 +26,7 @@ COPY scripts/*.sh /app/
 # Ensure entrypoint is executable
 RUN chmod +x /app/*.sh
 
+# Dunno but might help
+RUN git config --global --add safe.directory /github/workspace
+
 ENTRYPOINT ["/app/entrypoint.sh"]
