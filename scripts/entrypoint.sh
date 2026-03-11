@@ -34,6 +34,9 @@ check_command trudag
 # Source shared config
 source "$(dirname "$0")/config.sh"
 
+# Make git accept our working directory permissions
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 # Add custom trudag formatters to workspace (only if we're truly running inside a github action container)
 if [ -d "/app/.dotstop_extensions" ]; then
   cp -fr /app/.dotstop_extensions "$GITHUB_WORKSPACE"
