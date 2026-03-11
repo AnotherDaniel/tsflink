@@ -40,5 +40,5 @@ else
   gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --pattern '*.tsffer' --dir "$WORK_DIR"
 
   # Flatten stupid dir structure that gh run download creates
-  find tmp -mindepth 2 -type f -exec mv -t "$TSFFER_DIR" {} +
+  find "$WORK_DIR" -mindepth 2 -type f -exec mv -t "$TSFFER_DIR" {} +
 fi
