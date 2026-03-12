@@ -37,6 +37,10 @@ source "$(dirname "$0")/config.sh"
 # Make git accept our working directory permissions
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
+java -version
+ls -lh /app
+java -jar /app/openfasttrace.jar help
+
 # Add custom trudag formatters to workspace (only if we're truly running inside a github action container)
 if [ -d "/app/.dotstop_extensions" ]; then
   cp -fr /app/.dotstop_extensions "$GITHUB_WORKSPACE"

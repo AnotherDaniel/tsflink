@@ -1,6 +1,15 @@
+# Stage 1: Build environment with OpenJDK
+FROM eclipse-temurin:21-jdk-slim AS java
+
+# Stage 2: Final slim image with OpenJDK
 FROM python:3.14-slim
 
-ENV PATH="/root/.local/bin:$PATH"
+# Copy the Java runtime from the java
+COPY --from=java /usr/lib/jvm/java-21-openjdk-amd64 /usr/lib/jvm/openjdk-jre-21
+
+# Set JAVA_HOME and PATH
+ENV JAVA_HOME=/usr/lib/jvm/openjdk-jre-21
+ENV PATH="/root/.local/bin:$JAVA_HOME/bin:$PATH"
 WORKDIR /app
 
 # System deps needed to build wheels
@@ -15,11 +24,12 @@ RUN apt-get update && \
     yq \
     && rm -rf /var/lib/apt/lists/*
 
-# Install TSF trudag tool
+# Install TSF trudag tool and some associated Python deps
+RUN pip install requests
 RUN pip install trustable --index-url https://gitlab.eclipse.org/api/v4/projects/12202/packages/pypi/simple
 
-# Install custom stuff we need around trudag: custom formatters, implied Python modules
-RUN pip install requests
+# Install oft tool to support oft requirements references
+RUN curl --location -s -o /app/openfasttrace.jar https://github.com/itsallcode/openfasttrace/releases/download/4.2.2/openfasttrace-4.2.2.jar
 
 # Copy application code
 COPY scripts/*.sh /app/
