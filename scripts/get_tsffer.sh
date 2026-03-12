@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # Usage: get_tsffer.sh [optional_tsffer_source_url]
 

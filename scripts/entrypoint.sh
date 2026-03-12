@@ -37,10 +37,6 @@ source "$(dirname "$0")/config.sh"
 # Make git accept our working directory permissions
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-java -version
-ls -lh /app
-java -jar /app/openfasttrace.jar help
-
 # Add custom trudag formatters to workspace (only if we're truly running inside a github action container)
 if [ -d "/app/.dotstop_extensions" ]; then
   cp -fr /app/.dotstop_extensions "$GITHUB_WORKSPACE"
@@ -68,6 +64,9 @@ done
 # Extract overall score
 TRUDAG_SCORE=$(jq -r '.scores[] | select(.id | endswith("TRUSTABLE-SOFTWARE")) | .score' "$REPORT_DIR"/"$TRUDAG_SCORE_FILE")
 echo "Trudag score: $TRUDAG_SCORE"
+
+"$(dirname "$0")/run_oft.sh" "req-test-id"
+
 
 # Set action ouput - tsf score and generated report archive 
 set_output "TRUDAG_SCORE" "$TRUDAG_SCORE"
