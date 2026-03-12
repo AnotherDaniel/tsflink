@@ -58,9 +58,6 @@ for file in "$TSFFER_DIR"/*.tsffer; do
   "$(dirname "$0")/process_references.sh" "$(cat "$file")"
 done
 
-# Score tsf tree
-#TRUDAG_SCORE=$("$(dirname "$0")/trudag_score.sh")
-
 # Create and package trudag report
 "$(dirname "$0")/trudag_publish.sh"
 
