@@ -49,14 +49,8 @@ if [[ ! "$TSFFER_DIR" || ! -d "$TSFFER_DIR" ]]; then
   exit 1
 fi
 
-echo "BEFORE GETTING ASSETS"
-ls -lh "$GITHUB_WORKSPACE"
-
 # Retrieve tsffer assets
 "$(dirname "$0")/get_tsffer.sh" "$TSFFER_URL"
-
-echo "BEFORE LINKING REFS"
-ls -lh "$GITHUB_WORKSPACE"
 
 # Process each tsffer file, to link evidence refs into tsf tree
 for file in "$TSFFER_DIR"/*.tsffer; do
@@ -64,21 +58,15 @@ for file in "$TSFFER_DIR"/*.tsffer; do
   "$(dirname "$0")/process_references.sh" "$(cat "$file")"
 done
 
-echo "BEFORE SCORING ASSETS"
-ls -lh "$GITHUB_WORKSPACE"
-
 # Score tsf tree
-TRUDAG_SCORE=$("$(dirname "$0")/trudag_score.sh")
-echo "Trudag score: $TRUDAG_SCORE"
-
-echo "BEFORE SCORING TREE"
-ls -lh "$GITHUB_WORKSPACE"
+#TRUDAG_SCORE=$("$(dirname "$0")/trudag_score.sh")
 
 # Create and package trudag report
 "$(dirname "$0")/trudag_publish.sh"
 
-echo "BEFORE PUBLISHING REPORT"
-ls -lh "$GITHUB_WORKSPACE"
+# Extract overall score
+TRUDAG_SCORE=$(jq -r '.scores[] | select(.id | endswith("TRUSTABLE-SOFTWARE")) | .score' "$REPORT_DIR"/"$TRUDAG_SCORE_FILE")
+echo "Trudag score: $TRUDAG_SCORE"
 
 # Set action ouput - tsf score and generated report archive 
 set_output "TRUDAG_SCORE" "$TRUDAG_SCORE"
