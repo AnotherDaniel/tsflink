@@ -20,6 +20,7 @@ RUN apt-get update && \
     git \
     jq \
     openjdk-21-jre-headless \
+    wget \
     yq \
     && rm -rf /var/lib/apt/lists/*
 
