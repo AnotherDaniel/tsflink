@@ -21,5 +21,6 @@ echo "::notice::running OpenFastTrace for file patterns: $file_patterns"
 
 # we need to provide the file patterns unquoted in order for the shell to expand any glob patterns like "*.md"
 oft_output=$(java -cp "${LIB_DIR}/*" org.itsallcode.openfasttrace.core.cli.CliStarter trace "${options[@]}" $file_patterns |grep "$REQUIREMENT_ID")
+oft_output="${oft_output:?No requirement information found for $REQUIREMENT_ID}"
 
 echo "$oft_output"

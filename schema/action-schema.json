@@ -39,7 +39,7 @@
         },
         "outputs": {
             "type": "object",
-            "description": "Output parameters from the action.",
+            "description": "Output parameters for the action.",
             "additionalProperties": {
                 "type": "object",
                 "required": [

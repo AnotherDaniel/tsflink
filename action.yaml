@@ -11,6 +11,8 @@ outputs:
     description: "TSF score computed after linking evidence refs"
   trudag_report:
     description: "Name of archive file containing trudag-generated report"
+  trudag_report_dir:
+    description: "Directory containing trudag-generated report files"
 
 runs:
   using: docker

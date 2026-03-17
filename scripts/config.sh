@@ -12,7 +12,7 @@ TSFFER_DIR="$GITHUB_WORKSPACE/tsffer_assets"
 TSFFER_URL="${1:-}"
 
 # Report directory that we generate all the things into
-REPORT_DIR="trustable/docs"
+REPORT_DIR="docs/trustable/"
 
 # Trudag scoring output file
 TRUDAG_SCORE_FILE="score.json"

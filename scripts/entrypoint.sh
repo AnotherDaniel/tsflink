@@ -65,9 +65,7 @@ done
 TRUDAG_SCORE=$(jq -r '.scores[] | select(.id | endswith("TRUSTABLE-SOFTWARE")) | .score' "$REPORT_DIR"/"$TRUDAG_SCORE_FILE")
 echo "Trudag score: $TRUDAG_SCORE"
 
-"$(dirname "$0")/run_oft.sh" "req-test-id"
-
-
 # Set action ouput - tsf score and generated report archive 
 set_output "TRUDAG_SCORE" "$TRUDAG_SCORE"
 set_output "TRUDAG_REPORT" "$TRUDAG_REPORT_ARCHIVE"
+set_output "TRUDAG_REPORT_DIR" "$REPORT_DIR"
