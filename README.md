@@ -39,7 +39,7 @@ The `tsflink` action requires little configuration or inputs; in the minimum cas
 
 ### Target release and other expectations
 
-This action works best when run in the context of a release (tag-initiated) GitHub worflow:
+This action works best when run in the context of a release (tag-initiated) GitHub workflow:
 
 - `GITHUB_WORKSPACE`, `GITHUB_REPOSITORY`, and `GITHUB_RUN_ID` are set to valid/real values, as these are used to determine asset upload target
 
@@ -61,4 +61,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-For a more complete example, please refer to the [`tsftemplate` project](https://github.com/AnotherDaniel/tsftemplate).
+For a more complete example, please refer to the [`tsftemplate`](https://github.com/AnotherDaniel/tsftemplate) project.
