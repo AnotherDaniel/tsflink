@@ -19,7 +19,9 @@ set_output() {
 }
 
 check_command() {
-  if ! command -v "$1" >/dev/null 2>&1; then
+  if command -v "$1" >/dev/null 2>&1; then
+    "$1" --version
+  else
     echo "Error: $1 is not installed" >&2
     exit 1
   fi
