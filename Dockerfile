@@ -1,8 +1,6 @@
-FROM python:3.14-slim
+FROM python:3.15-slim
 
 ENV PATH="/root/.local/bin:$PATH"
-
-ARG TSF_CORE_VERSION=12202
 
 WORKDIR /app
 
@@ -22,7 +20,7 @@ RUN apt-get update && \
 RUN <<EOF 
 tsf_base_url=https://gitlab.eclipse.org/api/v4/projects
 pip install requests
-pip install trustable --index-url ${tsf_base_url}/$TSF_CORE_VERSION/packages/pypi/simple
+pip install trustable --index-url ${tsf_base_url}/12202/packages/pypi/simple
 EOF
 
 # Copy application code
